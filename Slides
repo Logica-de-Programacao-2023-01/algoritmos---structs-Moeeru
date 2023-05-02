@@ -1,0 +1,102 @@
+#Exercicio 1
+package main
+
+import "fmt"
+
+type retangulo struct {
+	largura int
+	altura  int
+	area    int
+}
+
+func main() {
+	var r retangulo
+	fmt.Print("Digite a altura do retângulo: ")
+	fmt.Scan(&r.altura)
+	fmt.Print("Digite a largura do retângulo:")
+	fmt.Scan(&r.largura)
+	r.area = r.largura * r.altura
+	fmt.Print(r.largura, r.altura, r.area)
+}
+
+
+#Exercicio 2
+package main
+
+import "fmt"
+
+type livro struct {
+	titulo string
+	autor  string
+	anopub int
+}
+
+func main() {
+	var o livro
+	fmt.Print("Digite o nome do livro: ")
+	fmt.Scan(&o.titulo)
+	fmt.Print("Digite o nome do autor:")
+	fmt.Scan(&o.autor)
+	fmt.Print("Digite o ano de lançamento do livro:")
+	fmt.Scan(&o.anopub)
+	fmt.Println(o.titulo)
+	fmt.Println(o.autor)
+	fmt.Println(o.anopub)
+}
+#Exercicio 3
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+type aluno struct {
+	nome  string
+	idade int
+	notas float64
+}
+
+func notas(lista []float64) (p aluno) {
+	media := 0.0
+	soma := 0.0
+	for c := 0; c < len(lista); c++ {
+		soma += lista[c]
+	}
+	media = soma / float64(len(lista))
+	return aluno{notas: media}
+}
+
+func main() {
+	var e aluno
+	fmt.Print("Digite o seu nome : ")
+	fmt.Scan(&e.nome)
+	fmt.Print("Digite sua idade: ")
+	fmt.Scan(&e.idade)
+
+	var media []float64
+	for {
+		nota := 0.0
+		fmt.Print("Digite sua nota: ")
+		fmt.Scan(&nota)
+		media = append(media, nota)
+		resp := ""
+		fmt.Print("Deseja continuar ? [S/N]")
+		fmt.Scan(&resp)
+		if strings.ContainsAny(resp, "SN") == false {
+			fmt.Println("Resposta inválida, tente novamente")
+			fmt.Scan(&resp)
+			if resp == "N" {
+				break
+			}
+		} else {
+			if resp == "N" {
+				break
+			}
+		}
+	}
+	e = notas(media)
+	fmt.Println(e.nome)
+	fmt.Println(e.idade)
+	fmt.Println(e.notas)
+}
