@@ -1,5 +1,69 @@
 #Exercicios 1
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+type circulo struct {
+	raio float64
+}
+
+func areacirculo(p circulo) (area float64) {
+	area = math.Pi * p.raio * p.raio
+	return area
+}
+
+func main() {
+	var c circulo
+	fmt.Print("Digite o raio da circunferencia : ")
+	fmt.Scan(&c.raio)
+	resultado := areacirculo(c)
+	fmt.Printf("A area do circulo de raio %.2f é %.2f", c.raio, resultado)
+}
+
 #Exercicios 2
+package main
+
+import (
+	"fmt"
+)
+
+type enderco struct {
+	rua    string
+	numero int
+	cidade string
+	estado string
+}
+type pessoa struct {
+	nome        string
+	idade       int
+	meuEndereco enderco
+}
+
+func main() {
+	var p pessoa
+	fmt.Print("Digite o seu nome : ")
+	fmt.Scan(&p.nome)
+	fmt.Print("Digite sua idade : ")
+	fmt.Scan(&p.idade)
+	fmt.Print("Digite seu estado : ")
+	fmt.Scan(&p.meuEndereco.estado)
+	fmt.Print("Digite sua cidade : ")
+	fmt.Scan(&p.meuEndereco.cidade)
+	fmt.Print("Digite sua rua : ")
+	fmt.Scan(&p.meuEndereco.rua)
+	fmt.Print("Digite o seu numero : ")
+	fmt.Scan(&p.meuEndereco.numero)
+	fmt.Println(p.nome)
+	fmt.Println(p.idade)
+	fmt.Println(p.meuEndereco.estado)
+	fmt.Println(p.meuEndereco.cidade)
+	fmt.Println(p.meuEndereco.rua)
+	fmt.Println(p.meuEndereco.numero)
+}
+
 #Exercicios 3
 #Exercicios 4
 #Exercicios 5
